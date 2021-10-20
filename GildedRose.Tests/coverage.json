@@ -1,0 +1,422 @@
+{
+  "GildedRose.Console.dll": {
+    "/Users/andreaskongstad/Desktop/DSABstuff/Assignment5-main/GildedRose.Console/Item.cs": {
+      "Item": {
+        "System.String Item::get_Name()": {
+          "Lines": {
+            "4": 123
+          },
+          "Branches": []
+        },
+        "System.Int32 Item::get_SellIn()": {
+          "Lines": {
+            "6": 1814
+          },
+          "Branches": []
+        },
+        "System.Int32 Item::get_Quality()": {
+          "Lines": {
+            "8": 1836
+          },
+          "Branches": []
+        },
+        "System.Void Item::UpdateQuality()": {
+          "Lines": {
+            "10": 224,
+            "11": 326,
+            "12": 102,
+            "13": 102,
+            "15": 224,
+            "17": 224,
+            "18": 20,
+            "19": 20,
+            "20": 20,
+            "21": 224
+          },
+          "Branches": [
+            {
+              "Line": 11,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 102
+            },
+            {
+              "Line": 11,
+              "Offset": 12,
+              "EndOffset": 33,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 224
+            },
+            {
+              "Line": 17,
+              "Offset": 57,
+              "EndOffset": 59,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 142
+            },
+            {
+              "Line": 17,
+              "Offset": 57,
+              "EndOffset": 70,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 82
+            },
+            {
+              "Line": 17,
+              "Offset": 73,
+              "EndOffset": 75,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 20
+            },
+            {
+              "Line": 17,
+              "Offset": 73,
+              "EndOffset": 94,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 224
+            }
+          ]
+        }
+      },
+      "Item/ConjuredItem": {
+        "System.Void Item/ConjuredItem::UpdateQuality()": {
+          "Lines": {
+            "24": 113,
+            "25": 116,
+            "26": 112,
+            "27": 24,
+            "28": 24,
+            "29": 24,
+            "30": 113,
+            "31": 113,
+            "32": 88,
+            "33": 88,
+            "34": 88,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 88,
+            "39": 113
+          },
+          "Branches": [
+            {
+              "Line": 25,
+              "Offset": 12,
+              "EndOffset": 14,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 25,
+              "Offset": 12,
+              "EndOffset": 35,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 112
+            },
+            {
+              "Line": 26,
+              "Offset": 46,
+              "EndOffset": 48,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 24
+            },
+            {
+              "Line": 26,
+              "Offset": 46,
+              "EndOffset": 65,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 113
+            },
+            {
+              "Line": 31,
+              "Offset": 93,
+              "EndOffset": 95,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 88
+            },
+            {
+              "Line": 33,
+              "Offset": 109,
+              "EndOffset": 111,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 33,
+              "Offset": 109,
+              "EndOffset": 132,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 88
+            },
+            {
+              "Line": 34,
+              "Offset": 145,
+              "EndOffset": 147,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 34,
+              "Offset": 145,
+              "EndOffset": 164,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 88
+            },
+            {
+              "Line": 31,
+              "Offset": 93,
+              "EndOffset": 165,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 113
+            }
+          ]
+        }
+      },
+      "Item/LegendaryItem": {
+        "System.Void Item/LegendaryItem::UpdateQuality()": {
+          "Lines": {
+            "42": 112,
+            "43": 112,
+            "44": 112
+          },
+          "Branches": []
+        }
+      },
+      "Item/BackstagePassItem": {
+        "System.Void Item/BackstagePassItem::UpdateQuality()": {
+          "Lines": {
+            "47": 115,
+            "48": 115,
+            "49": 115,
+            "52": 46,
+            "53": 46,
+            "55": 20,
+            "56": 20,
+            "58": 21,
+            "59": 21,
+            "61": 28,
+            "62": 28,
+            "64": 118,
+            "65": 115
+          },
+          "Branches": [
+            {
+              "Line": 49,
+              "Offset": 29,
+              "EndOffset": 31,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 66
+            },
+            {
+              "Line": 49,
+              "Offset": 29,
+              "EndOffset": 37,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 49
+            },
+            {
+              "Line": 49,
+              "Offset": 33,
+              "EndOffset": 44,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 46
+            },
+            {
+              "Line": 49,
+              "Offset": 33,
+              "EndOffset": 54,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 20
+            },
+            {
+              "Line": 49,
+              "Offset": 40,
+              "EndOffset": 71,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 21
+            },
+            {
+              "Line": 49,
+              "Offset": 40,
+              "EndOffset": 88,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 28
+            },
+            {
+              "Line": 64,
+              "Offset": 119,
+              "EndOffset": 121,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 3
+            },
+            {
+              "Line": 64,
+              "Offset": 119,
+              "EndOffset": 130,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 115
+            }
+          ]
+        }
+      },
+      "Item/AgedBrieItem": {
+        "System.Void Item/AgedBrieItem::UpdateQuality()": {
+          "Lines": {
+            "68": 111,
+            "69": 222,
+            "70": 111,
+            "71": 111,
+            "72": 111,
+            "73": 111
+          },
+          "Branches": [
+            {
+              "Line": 69,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 111
+            },
+            {
+              "Line": 69,
+              "Offset": 13,
+              "EndOffset": 34,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 111
+            }
+          ]
+        }
+      }
+    },
+    "/Users/andreaskongstad/Desktop/DSABstuff/Assignment5-main/GildedRose.Console/Program.cs": {
+      "GildedRose.Console.Program": {
+        "System.Void GildedRose.Console.Program::Main(System.String[])": {
+          "Lines": {
+            "9": 1,
+            "10": 1,
+            "12": 1,
+            "13": 1,
+            "14": 1,
+            "15": 1,
+            "16": 1,
+            "17": 1,
+            "18": 1,
+            "19": 1,
+            "20": 1,
+            "21": 1,
+            "22": 1,
+            "23": 1,
+            "24": 1,
+            "25": 1,
+            "26": 1,
+            "27": 1,
+            "28": 1,
+            "29": 1,
+            "31": 15,
+            "32": 6,
+            "33": 6,
+            "34": 6,
+            "35": 6,
+            "37": 1,
+            "39": 1,
+            "40": 15,
+            "41": 6,
+            "42": 6,
+            "43": 6,
+            "44": 6,
+            "47": 1
+          },
+          "Branches": [
+            {
+              "Line": 31,
+              "Offset": 399,
+              "EndOffset": 289,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 6
+            },
+            {
+              "Line": 31,
+              "Offset": 399,
+              "EndOffset": 401,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 40,
+              "Offset": 564,
+              "EndOffset": 448,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 6
+            },
+            {
+              "Line": 40,
+              "Offset": 564,
+              "EndOffset": 566,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Void GildedRose.Console.Program::UpdateQuality()": {
+          "Lines": {
+            "48": 111,
+            "49": 1683,
+            "50": 675,
+            "51": 675,
+            "52": 675,
+            "53": 111
+          },
+          "Branches": [
+            {
+              "Line": 49,
+              "Offset": 38,
+              "EndOffset": 16,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 675
+            },
+            {
+              "Line": 49,
+              "Offset": 38,
+              "EndOffset": 40,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 111
+            }
+          ]
+        }
+      }
+    }
+  }
+}
