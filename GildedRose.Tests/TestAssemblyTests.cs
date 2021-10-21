@@ -1,5 +1,5 @@
 ﻿using Xunit;
-using GildedRose.Console;
+using GildedRose;
 using System.Collections.Generic;
 using System.IO;
 using System;
@@ -8,13 +8,11 @@ namespace GildedRose.Tests
 {
     public class TestAssemblyTests
     {
-        private readonly Program app;
+        private readonly GildedRoseShop shop;
 
 
         public TestAssemblyTests(){
-            app = new Program()
-                          {
-                              Items = new List<Item>
+            shop = new GildedRoseShop(new List<Item>
                                           {
                                               new Item {Name = "+5 Dexterity Vest", SellIn = 10, Quality = 20},
                                               new Item.AgedBrieItem {Name = "Aged Brie", SellIn = 2, Quality = 0},
@@ -27,8 +25,7 @@ namespace GildedRose.Tests
                                                       Quality = 20
                                                   },
                                               new Item.ConjuredItem {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
-                                          }
-                          };
+                                          });
         }
 
         [Fact]
@@ -43,19 +40,19 @@ namespace GildedRose.Tests
             //Arrange
             var expected = 4;
             var item = new Item {Name = "+10 Dexterity Vest", SellIn = 0, Quality = 6};
-            app.Items.Add(item);
+            shop.Items.Add(item);
             
             //Act
-            app.UpdateQuality();
+            shop.UpdateQuality();
 
             //Assert
-            Assert.Equal(expected, app.Items[6].Quality);
+            Assert.Equal(expected, shop.Items[6].Quality);
         }
 
         [Fact]
         public void Main_output_before_refactor()
         {
-            var expected = File.ReadAllText("../../..//output.txt").Trim();
+            var expected = File.ReadAllText("../../../../GildedRose/output.txt").Trim();
             var writer = new StringWriter();
             System.Console.SetOut(writer);
 
@@ -69,12 +66,12 @@ namespace GildedRose.Tests
         public void Quality_Never_Negative_by_updatingQuality_multiple_times()
         {
             for(int i = 0; i < 20; i++){
-                app.UpdateQuality();
+                shop.UpdateQuality();
             }
             
-            Assert.Equal(0, app.Items[0].Quality);
-            Assert.Equal(0, app.Items[2].Quality);
-            Assert.Equal(0, app.Items[5].Quality);
+            Assert.Equal(0, shop.Items[0].Quality);
+            Assert.Equal(0, shop.Items[2].Quality);
+            Assert.Equal(0, shop.Items[5].Quality);
 
         }
         
@@ -84,13 +81,13 @@ namespace GildedRose.Tests
             //Arrange
             var expected = 0;
             var item = new Item {Name = "+10 Dexterity Vest", SellIn = 0, Quality = 0};
-            app.Items.Add(item);
+            shop.Items.Add(item);
             
             //Act
-            app.UpdateQuality();
+            shop.UpdateQuality();
 
             //Assert
-            Assert.Equal(expected, app.Items[6].Quality);
+            Assert.Equal(expected, shop.Items[6].Quality);
         }
 
         [Fact]
@@ -99,13 +96,13 @@ namespace GildedRose.Tests
             //Arrange
             var expected = 0;
             var item = new Item.ConjuredItem {Name = "Conjured Mana Cake", SellIn = 5, Quality = 2};
-            app.Items.Add(item);
+            shop.Items.Add(item);
             
             //Act
-            app.UpdateQuality();
+            shop.UpdateQuality();
 
             //Assert
-            Assert.Equal(expected, app.Items[6].Quality);
+            Assert.Equal(expected, shop.Items[6].Quality);
         }
 
         [Fact]
@@ -114,25 +111,25 @@ namespace GildedRose.Tests
             //Arrange
             var expected = 0;
             var item = new Item.ConjuredItem {Name = "Conjured Mana Cake", SellIn = 5, Quality = 1};
-            app.Items.Add(item);
+            shop.Items.Add(item);
             
             //Act
-            app.UpdateQuality();
+            shop.UpdateQuality();
 
             //Assert
-            Assert.Equal(expected, app.Items[6].Quality);
+            Assert.Equal(expected, shop.Items[6].Quality);
         }
 
         [Fact]
         public void Aged_Brie_Increase_In_Quality_Older()
         {
-            var qualityDayOne = app.Items[1].Quality;
+            var qualityDayOne = shop.Items[1].Quality;
             
             for(int i = 0 ; i <10 ; i++){
-                app.UpdateQuality();    
+                shop.UpdateQuality();    
             }
             
-            Assert.True(qualityDayOne < app.Items[1].Quality);
+            Assert.True(qualityDayOne < shop.Items[1].Quality);
             
 
         }
@@ -141,47 +138,47 @@ namespace GildedRose.Tests
         public void Quality_Never_More_Than_Fifty()
         {            
             for(int i = 0 ; i <50 ; i++){
-                app.UpdateQuality();    
+                shop.UpdateQuality();    
             }
             
-            Assert.True(app.Items[1].Quality <= 50);
+            Assert.True(shop.Items[1].Quality <= 50);
         }
 
         [Fact]
         public void Sulfuras_Never_Has_To_Be_Sold()
         {
             var expected = 0;
-            var sulfurasSellIn = app.Items[3].SellIn;
+            var sulfurasSellIn = shop.Items[3].SellIn;
             Assert.Equal(expected, sulfurasSellIn);
-            app.UpdateQuality();
+            shop.UpdateQuality();
             Assert.Equal(expected, sulfurasSellIn);
         }
 
         [Fact]
         public void Sulfuras_Never_Decrease_In_Quality()
         {
-            var qualityStart = app.Items[3].Quality;
+            var qualityStart = shop.Items[3].Quality;
             
             for(int i = 0 ; i<20 ; i++){
-                app.UpdateQuality();
+                shop.UpdateQuality();
             }
             
-            Assert.True(qualityStart == app.Items[3].Quality);
+            Assert.True(qualityStart == shop.Items[3].Quality);
         }
 
         [Fact]
-        public void BackStagePasses_Increase_Quality_As_Sellin_Approaches()
+        public void BackStagePasses_Increase_Quality_As_Sellin_shoproaches()
         {
             //Arrange
             var expected = 1;
             var item = new Item.BackstagePassItem {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 12, Quality = 0};
-            app.Items.Add(item);
+            shop.Items.Add(item);
             
             //Act
-            app.UpdateQuality();
+            shop.UpdateQuality();
 
             //Assert
-            Assert.Equal(expected, app.Items[6].Quality);
+            Assert.Equal(expected, shop.Items[6].Quality);
         }
 
         [Fact]
@@ -190,13 +187,13 @@ namespace GildedRose.Tests
             //Arrange
             var expected = 2;
             var item = new Item.BackstagePassItem {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 0};
-            app.Items.Add(item);
+            shop.Items.Add(item);
             
             //Act
-            app.UpdateQuality();
+            shop.UpdateQuality();
 
             //Assert
-            Assert.Equal(expected, app.Items[6].Quality);
+            Assert.Equal(expected, shop.Items[6].Quality);
         }
         
         [Fact]
@@ -205,13 +202,13 @@ namespace GildedRose.Tests
             //Arrange
             var expected = 3;
             var item = new Item.BackstagePassItem {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 0};
-            app.Items.Add(item);
+            shop.Items.Add(item);
             
             //Act
-            app.UpdateQuality();
+            shop.UpdateQuality();
 
             //Assert
-            Assert.Equal(expected, app.Items[6].Quality);
+            Assert.Equal(expected, shop.Items[6].Quality);
         }
 
         [Fact]
@@ -220,13 +217,13 @@ namespace GildedRose.Tests
             //Arrange
             var expected = 0;
             var item = new Item.BackstagePassItem {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 10};
-            app.Items.Add(item);
+            shop.Items.Add(item);
             
             //Act
-            app.UpdateQuality();
+            shop.UpdateQuality();
 
             //Assert
-            Assert.Equal(expected, app.Items[6].Quality);
+            Assert.Equal(expected, shop.Items[6].Quality);
         }
         [Fact]
         public void Legendary_quality_80()
@@ -234,13 +231,23 @@ namespace GildedRose.Tests
            //Arrange
             var expected = 80;
             var item = new Item.LegendaryItem {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80};
-            app.Items.Add(item);
+            shop.Items.Add(item);
             
             //Act
-            app.UpdateQuality();
+            shop.UpdateQuality();
 
             //Assert
-            Assert.Equal(expected, app.Items[6].Quality);
+            Assert.Equal(expected, shop.Items[6].Quality);
+        }
+
+        [Fact]
+        public void Add_Item_To_GildedRose()
+        {
+            shop.addItem(new Item.LegendaryItem {Name = "Sulfuras, Hand of Ragnaros", SellIn = 0, Quality = 80});
+            var elements = shop.Items.Count;
+            shop.addItem(new Item.BackstagePassItem {Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 10});
+            Assert.True(shop.Items.Count > elements);
+            
         }
     }
 }
